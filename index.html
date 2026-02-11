@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Promise Day 💗</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg,#ffd6df,#ff9fb5);
+  overflow: hidden;
+}
+
+/* floating hearts */
+.heart {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.25;
+  animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+.card {
+  width: 90%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  text-align: center;
+  z-index: 2;
+}
+
+.badge {
+  background: #ffe5ec;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.msg {
+  background: #f2f2f2;
+  padding: 18px;
+  border-radius: 16px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255,77,109,0.4);
+}
+</style>
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<12;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerText="💗";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(8+Math.random()*6)+"s";
+document.body.appendChild(h);
+}
+</script>
+
+<div class="card" id="card">
+<div class="badge">❤️ Promise Day ❤️</div>
+<h1>Promises to You 💗</h1>
+
+<div class="msg">
+Yeh saare promises sirf tumhare liye…  
+dil se, bina condition ke.
+</div>
+
+<button onclick="next()">Start</button>
+</div>
+
+<script>
+const names = [
+"Promises 💗",
+"Meri Rasmalai 💗",
+"Kitu 💗",
+"Beta 💗",
+"Meri Rasmalai 💗",
+"Forever 💗"
+];
+
+const pages = [
+
+"Aaj main seriously ek promise karna chahta hoon…\nye sirf words nahi, dil se bol raha hoon.",
+
+"Main tumhe kabhi nahi chhodunga.\nChahe fight ho, mood ho — main yahin hoon.",
+
+"Main kabhi cheat nahi karunga.\nMujhe kisi aur ki zarurat hi nahi… tum hi meri ho.",
+
+"Har situation mein tumhare saath rahunga.\nGood days ho ya bad days — hum saath.",
+
+"Aur sach bolu…\nMain tumse addict ho chuka hoon.\nTum hi ho. Bas tum. ❤️",
+
+"I’m going to love you forever.\nChahe tum busy ho… time kam mile…\npyaar kabhi kam nahi hoga.\nMain hamesha yahin hoon ❤️\n\nWill you do the same for me cutie? 💗"
+
+];
+
+let i = 0;
+
+function next(){
+if(i < pages.length){
+document.getElementById("card").innerHTML =
+"<div class='badge'>❤️ Promise ❤️</div><h1>"+names[i+1]+"</h1><div class='msg'>"
++pages[i].replace(/\n/g,"<br>")+
+"</div><button onclick='next()'>Next</button>";
+i++;
+} else {
+document.getElementById("card").innerHTML =
+"<div class='badge'>❤️ Always ❤️</div><h1>Us Forever 💗</h1><div class='msg'>No conditions. Only love. ❤️</div>";
+}
+}
+</script>
+
+</body>
+</html>
